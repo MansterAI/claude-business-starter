@@ -68,15 +68,20 @@ Claude lit tous tes fichiers de contexte → identifie les gaps + opportunités 
 
 Ces skills améliorent la façon dont Claude travaille avec toi :
 
-```
-# Dans Claude Code, installe ces skills officiels :
-superpowers:brainstorming          ← avant chaque nouveau projet ou feature
-superpowers:writing-plans          ← pour planifier avant d'agir
-superpowers:systematic-debugging   ← pour résoudre des problèmes méthodiquement
-superpowers:verification-before-completion  ← pour valider avant de dire "c'est fait"
+```bash
+# 1. Cloner le repo superpowers
+git clone https://github.com/obra/superpowers.git ~/.claude/plugins/superpowers
+
+# 2. Les skills sont maintenant disponibles dans Claude Code
 ```
 
-👉 Visite [superpowers.ai](https://superpowers.ai) pour installer ces skills.
+Skills recommandés une fois installés :
+- `superpowers:brainstorming` — avant chaque nouveau projet ou feature
+- `superpowers:writing-plans` — pour planifier avant d'agir
+- `superpowers:systematic-debugging` — pour résoudre des problèmes méthodiquement
+- `superpowers:verification-before-completion` — pour valider avant de dire "c'est fait"
+
+👉 Repo officiel : [github.com/obra/superpowers](https://github.com/obra/superpowers)
 
 ---
 
