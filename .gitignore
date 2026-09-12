@@ -1,0 +1,15 @@
+# ── Secrets — NE JAMAIS committer ──────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Dépendances ────────────────────────────────────────────
+node_modules/
+
+# ── OS / éditeur ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+
+# ── Logs ───────────────────────────────────────────────────
+*.log

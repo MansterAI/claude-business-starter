@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "10k-digital": {
+      "type": "http",
+      "url": "https://nmqxrjqznuanccgulcrc.supabase.co/functions/v1/mcp"
+    }
+  }
+}

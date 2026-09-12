@@ -8,33 +8,32 @@ Un template prêt à l'emploi pour organiser le contexte de ton entreprise dans 
 
 ## Démarrage rapide
 
-### Étape 0 — Cloner le repo
+Tu n'as **rien à remplir à la main**. Tu télécharges le repo, tu ouvres Claude Code, et Claude t'accompagne dans une conversation d'installation.
+
+### Étape 1 — Récupérer le repo
 ```bash
-git clone https://github.com/[ton-username]/claude-business-starter mon-entreprise
+git clone https://github.com/MansterAI/claude-business-starter mon-entreprise
 cd mon-entreprise
-code .  # Ouvrir dans VS Code avec Claude Code
 ```
+*(Ou télécharge le ZIP depuis GitHub et décompresse-le.)* Ouvre ensuite le dossier dans **Claude Code**.
 
-### Étape 1 — Remplir `CLAUDE.md` *(15 min)*
-C'est le fichier le plus important. Claude le lit avant chaque conversation.
-Remplis les sections marquées `[REMPLIR]` avec les infos de ton entreprise.
+### Étape 2 — Connecter ton tableau de bord 10K
+Dans Claude Code, tape :
+```
+/mcp
+```
+Choisis **10k-digital** et connecte-toi avec ton compte 10K Digital. *(Le serveur est déjà pré-configuré dans le repo.)*
 
-### Étape 2 — Remplir `ai/context/business.md` *(20 min)*
-Vision, offres, positionnement, différenciateur.
+> ⚠️ **Avant** : va dans l'app 10K et complète les modules du début (ton **histoire**, ta **brand**, ton **ICP**, ton **offre**). Ces infos seront importées automatiquement dans ton Claude Code.
 
-### Étape 3 — Remplir `ai/context/audience.md` *(20 min)*
-Tes 3 types de clients idéaux, leurs douleurs, ce qui les déclenche.
+### Étape 3 — Commencer à chatter
+Écris simplement à Claude (ex. « on commence ») ou tape :
+```
+/demarrer
+```
+Claude lance l'**onboarding** : il importe ton contexte depuis l'app 10K, te pose les questions manquantes, définit ton style d'écriture, et remplit `CLAUDE.md` + tes fichiers de contexte pour toi.
 
-### Étape 4 — Remplir `docs/brand/voice-tone.md` *(10 min)*
-Comment tu parles, ce que tu dis, ce que tu évites.
-
-### Étape 5 — Créer ta première fiche client *(5 min)*
-Tape dans Claude Code : `/init-client`
-Claude va te poser 5 questions et créer le fichier automatiquement.
-
-### Étape 6 — Remplir les contextes agents *(10 min chacun)*
-`ai/agents/marketing/context.md`, `sales/context.md`, `fulfillment/context.md`
-Ces fichiers permettent à Claude de comprendre où tu en es dans chaque département.
+**North Star par défaut du système : générer du revenu rapidement.** Tout est orienté vers ça.
 
 ---
 
@@ -50,6 +49,12 @@ Ces fichiers permettent à Claude de comprendre où tu en es dans chaque départ
 
 ## Skills disponibles
 
+### `/demarrer` *(à faire en premier)*
+Lance l'onboarding : connecte le MCP 10K, importe ton contexte (histoire, brand, ICP, offre), définit ton style, et configure `CLAUDE.md` + tes fichiers.
+
+### `/montage-video`
+Monte un reel / short orienté rétention : script (hook → corps → CTA), sous-titres incrustés, coupe des silences, export vertical 9:16. Dans ton style, sans charte imposée.
+
 ### `/init-client`
 Crée automatiquement une fiche client complète.
 Claude pose 5 questions → génère le fichier dans `docs/clients/`.
@@ -61,6 +66,11 @@ Claude analyse tes métriques + tâches en cours → rapport structuré + top 3 
 ### `/business-audit`
 Audit complet de ton entreprise.
 Claude lit tous tes fichiers de contexte → identifie les gaps + opportunités + 3 actions prioritaires.
+
+### `/kpi-tracker` *(membres 10K Digital)*
+Envoie tes chiffres de funnel dans ton onglet **KPI** de l'app 10K.
+Deux modes : **conversationnel** (Claude te demande tes chiffres) ou **auto-sync** (Claude tire tes stats de Meta Ads + GoHighLevel).
+Setup en 2 min → voir la section « Connecter ton tableau de bord 10K » plus bas.
 
 ---
 
@@ -82,6 +92,34 @@ Skills recommandés une fois installés :
 - `superpowers:verification-before-completion` — pour valider avant de dire "c'est fait"
 
 👉 Repo officiel : [github.com/obra/superpowers](https://github.com/obra/superpowers)
+
+---
+
+## Connecter ton tableau de bord 10K *(membres 10K Digital)*
+
+> **Deux connexions, deux usages :**
+> - **`/mcp` (fait à l'étape 2)** → connexion générale : import de ton contexte business, skills, progression. C'est la principale.
+> - **Clé `.env` ci-dessous** → sert **uniquement** à la skill `/kpi-tracker` pour logguer le détail de ton funnel. Optionnelle, à faire seulement si tu utilises `/kpi-tracker`.
+
+La skill `/kpi-tracker` pousse tes chiffres dans l'onglet **KPI** de l'app 10K, automatiquement. Setup une seule fois :
+
+**1. Génère ta clé API.** Dans l'app 10K → menu → **API Keys** (page `/api-keys`) → crée une clé (format `10k_...`).
+
+**2. Crée ton `.env`.** Copie le modèle :
+```bash
+cp .env.example .env
+```
+Ouvre `.env` et colle ta clé dans `KPI_INGEST_KEY`. *(Le `.env` n'est jamais poussé sur GitHub — il est protégé par `.gitignore`.)*
+
+**3. Utilise-la.** Dans Claude Code, tape :
+```
+/kpi-tracker
+```
+Claude te demande tes chiffres de la semaine et les envoie dans ton pilotage. C'est tout.
+
+**Optionnel — auto-sync.** Si tu veux que Claude tire tes stats tout seul depuis **Meta Ads** et **GoHighLevel**, remplis aussi les variables Meta/GHL dans `.env` (voir `.env.example`), puis demande « sync auto ».
+
+> ⚠️ Après l'envoi, va dans l'app → onglet KPI. L'onglet ouvre sur le **mois courant** : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres.
 
 ---
 
@@ -110,7 +148,11 @@ Une fois tes fichiers remplis, voici ce que tu peux demander à Claude :
 
 ```
 claude-business-starter/
-├── CLAUDE.md              ← 🔴 Remplir en premier
+├── CLAUDE.md              ← ✅ Rempli automatiquement par /demarrer
+├── .mcp.json              ← ✅ MCP 10K pré-configuré (connexion via /mcp)
+├── .env.example           ← 📋 Copier en .env (optionnel : auto-sync Meta/GHL)
+├── .claude/
+│   └── skills/            ← Skills Claude Code (/demarrer, /kpi-tracker, /montage-video...)
 ├── ai/
 │   ├── context/           ← Ce que Claude sait de ton entreprise
 │   ├── agents/            ← Spécialistes par département
