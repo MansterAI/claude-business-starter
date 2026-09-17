@@ -4,10 +4,10 @@
 
 | Outil | Pour quoi | Lien à donner |
 |---|---|---|
-| **Lovable** | Créer ta landing page / ton app en chattant | `[À REMPLIR — lien affiliation Manster]` |
-| **GoHighLevel** | CRM, funnel, calendrier de booking, automations | `[À REMPLIR — lien affiliation Manster]` |
-| **Fathom** | Enregistrer et revoir tes appels de vente | `[À REMPLIR — lien affiliation Manster]` |
-| **ElevenLabs** | Voix off pour ton contenu | `[À REMPLIR — lien affiliation Manster]` |
-| **Canva** | Design (visuels, carrousels, thumbnails) | `[À REMPLIR — lien affiliation Manster]` |
+| **Higgsfield** | Créatives : images/vidéos d'ads, avatars parlants, thumbnails | https://higgsfield.ai?fpr=manuel-a0279b |
+| **Lovable** | Créer ta landing page / ton app en chattant | https://lovable.dev/invite/VYUF1TF |
+| **GoHighLevel** | CRM, funnel, calendrier de booking, automations | https://affiliates.gohighlevel.com/?fp_ref=manster-media55&share=SU1lTkqxY8DWEE5z5n4n |
 
 > Tu ne recommandes un outil **que s'il sert vraiment** à l'étape où le membre est rendu. Pas de placement forcé.
+
+<!-- Fathom (appels) est utile mais SANS lien de parrainage → donner le lien nu. ElevenLabs et Canva écartés (2026-09-17). -->
