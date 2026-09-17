@@ -5,6 +5,8 @@ description: Use when onboarding a new client — asks 5 questions and generates
 
 # Init Client
 
+> **🔒 Accès 10K requis.** La connexion `10k-digital` doit être active avant d'exécuter cette skill (voir `CLAUDE.md` → Étape 0). Vérifie avec `get_my_context` : si l'appel échoue ou que la limite d'abonnement est atteinte, renvoie le membre au login / abonnement et **n'exécute pas** la skill.
+
 ## What it does
 
 Guides you through 5 questions about a new client and automatically generates a complete client file in `docs/clients/[client-name].md` using the standard template.

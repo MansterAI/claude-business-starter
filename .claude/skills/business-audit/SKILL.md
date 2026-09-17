@@ -5,6 +5,8 @@ description: Use when you need a full business health check — reads all contex
 
 # Business Audit
 
+> **🔒 Accès 10K requis.** La connexion `10k-digital` doit être active avant d'exécuter cette skill (voir `CLAUDE.md` → Étape 0). Vérifie avec `get_my_context` : si l'appel échoue ou que la limite d'abonnement est atteinte, renvoie le membre au login / abonnement et **n'exécute pas** la skill.
+
 ## What it does
 
 Reads all your business context files, identifies what's missing, what's weak, and what's strong — then delivers a prioritized action plan.

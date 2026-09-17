@@ -29,26 +29,43 @@ Souhaite la bienvenue. Explique en 3 phrases :
 
 Puis enchaîne directement sur l'étape 2.
 
-## Étape 2 — Connecter le MCP 10K
+## Étape 2 — Compte 10K + connexion MCP (OBLIGATOIRE, bloquant)
 
-Le MCP est déjà pré-configuré dans le projet (`.mcp.json`). Demande au membre de l'autoriser :
+C'est la porte d'entrée. **Rien d'autre ne se fait avant que ça soit vert.**
 
-> « Tape **`/mcp`** dans Claude Code, choisis **10k-digital**, et connecte-toi avec ton compte 10K. Dis-moi quand c'est fait. »
+1. **Compte :** demande-lui s'il a déjà un compte 10K Digital. Sinon :
+   > « Avant tout, crée ton compte gratuit dans l'app 10K Digital, remplis les premiers modules (histoire, brand, ICP…), et reviens ici. »
+2. **Connexion MCP :** le MCP est déjà pré-configuré (`.mcp.json`). Demande-lui de l'autoriser :
+   > « Tape **`/mcp`** dans Claude Code, choisis **10k-digital**, et connecte-toi avec ton compte 10K. Dis-moi quand c'est fait. »
+3. **Vérifie** la connexion en appelant `get_my_context` (outil du serveur 10k-digital).
+   - Si l'appel échoue → la connexion n'est pas active : re-guide vers l'inscription / `/mcp`. **Ne passe pas à la suite, n'exécute aucune autre skill.**
+   - Si le serveur répond que la **limite d'abonnement** est atteinte → explique-lui qu'il faut un abonnement actif pour continuer, et arrête là.
+   - Si ça marche → passe à l'étape 3.
 
-Quand il confirme, **vérifie la connexion** en appelant `get_my_context` (outil du serveur 10k-digital).
+## Étape 3 — Compléter la Fondation (Stratégie du début) AVEC le membre, puis sync vers l'app
 
-- Si l'appel échoue → la connexion n'est pas active : re-guide vers `/mcp` (ou vérifier qu'il est bien connecté au bon compte).
-- Si ça marche → passe à l'étape 3.
+Lis ce que `get_my_context` renvoie. Les champs correspondent aux modules du **début du programme (Stratégie / Fondation)** :
 
-## Étape 3 — Vérifier / compléter les infos dans l'app 10K
+| Champ contexte | Module | Contenu |
+|---|---|---|
+| `histoire` | Ton Histoire | parcours, pourquoi |
+| `brand` | Ta Brand | ton, promesse, univers |
+| `icp` | Client idéal | à qui tu vends |
+| `marche` | Marché / niche | ton terrain de jeu |
+| `offre_fondation` | Offre (fondation) | l'offre définie au début |
+| `offre_active` | Offre active | l'offre courante (texte libre) |
 
-Lis ce que `get_my_context` renvoie (Histoire, Brand, ICP, Offre, Marché).
+Pour **chaque champ vide ou faible**, ne renvoie PAS le membre remplir l'app à la main. **Fais le module avec lui, ici :**
 
-- **Champs vides ou incomplets** → dis-lui d'aller les remplir dans l'app 10K (modules du début : histoire, brand, ICP…), **puis** de revenir. Sois précis sur ce qui manque. Exemple :
-  > « Ton ICP et ton offre sont vides dans l'app. Va compléter les modules **[X]** et **[Y]** dans 10K Digital, reviens, et je réimporte. »
-- **Champs remplis** → passe à l'étape 4.
+1. Pose 2-3 questions courtes pour ce module (une chose à la fois).
+2. Rédige une version claire à partir de ses réponses, dans SON style.
+3. **Montre-la-lui** et ajuste jusqu'à ce qu'il valide.
+4. **Sync vers l'app** avec `set_my_context` — uniquement le(s) champ(s) concerné(s), les autres ne bougent pas.
+5. Confirme que c'est enregistré (« ✅ synchronisé dans ton app, module [X] »).
 
-> Le membre **doit** avoir complété ces infos dans l'app : c'est la source de vérité partagée entre l'app et son Claude Code.
+Enchaîne module par module jusqu'à ce que la Fondation soit complète. L'app reste la **source de vérité partagée** : ce que vous écrivez ici la remplit directement, le membre n'a rien à re-saisir ailleurs.
+
+> Si un champ est **déjà bien rempli** dans l'app, ne le réécris pas : confirme-le avec le membre et passe au suivant.
 
 ## Étape 4 — Importer le contexte (snapshot local + MCP live)
 
@@ -91,5 +108,5 @@ Résume ce qui a été rempli, ce qui reste à compléter (le cas échéant), et
 
 - **Montre toujours** ce que tu vas écrire dans un fichier AVANT de l'écrire ; ne jamais écraser du contenu déjà rempli sans confirmation.
 - Ne submerge pas : une étape à la fois, questions courtes.
-- Si le membre veut sauter une étape, respecte-le et note ce qui reste à faire dans `ai/memory/in-progress.md`.
+- Si le membre veut sauter une étape, respecte-le et note ce qui reste à faire dans `ai/memory/in-progress.md`. **Exception : l'étape 2 (compte 10K + connexion MCP) n'est JAMAIS optionnelle** — sans elle, aucune skill ne s'exécute.
 - Tout en **français québécois**, ton d'un coach qui veut sa réussite.

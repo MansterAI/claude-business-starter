@@ -17,14 +17,14 @@ cd mon-entreprise
 ```
 *(Ou télécharge le ZIP depuis GitHub et décompresse-le.)* Ouvre ensuite le dossier dans **Claude Code**.
 
-### Étape 2 — Connecter ton tableau de bord 10K
-Dans Claude Code, tape :
+### Étape 2 — Connecter ton compte 10K (obligatoire, en premier)
+Le starter fonctionne branché à la plateforme 10K Digital. **Crée ton compte 10K** si ce n'est pas déjà fait, puis dans Claude Code, tape :
 ```
 /mcp
 ```
-Choisis **10k-digital** et connecte-toi avec ton compte 10K Digital. *(Le serveur est déjà pré-configuré dans le repo.)*
+Choisis **10k-digital** et connecte-toi avec ton compte. *(Le serveur est déjà pré-configuré dans le repo.)*
 
-> ⚠️ **Avant** : va dans l'app 10K et complète les modules du début (ton **histoire**, ta **brand**, ton **ICP**, ton **offre**). Ces infos seront importées automatiquement dans ton Claude Code.
+> Pas besoin de remplir les modules à la main d'abord : à l'étape 3, Claude **construit ta Fondation (histoire, brand, ICP, offre, marché) avec toi** et la **synchronise dans ton app** automatiquement.
 
 ### Étape 3 — Commencer à chatter
 Écris simplement à Claude (ex. « on commence ») ou tape :
@@ -34,6 +34,12 @@ Choisis **10k-digital** et connecte-toi avec ton compte 10K Digital. *(Le serveu
 Claude lance l'**onboarding** : il importe ton contexte depuis l'app 10K, te pose les questions manquantes, définit ton style d'écriture, et remplit `CLAUDE.md` + tes fichiers de contexte pour toi.
 
 **North Star par défaut du système : générer du revenu rapidement.** Tout est orienté vers ça.
+
+---
+
+## Accès & abonnement
+
+L'accès passe par ton compte 10K. **L'usage est gratuit** pour l'essentiel : ton contexte, ton contenu, tes scripts de vente, tes KPI, ton suivi. Les **features qui font tourner de l'IA** demandent un abonnement — le **roleplay de vente**, et **Man AI** au-delà de **20 messages** d'essai.
 
 ---
 
@@ -175,4 +181,4 @@ Ce template est conçu pour évoluer avec ton entreprise. Tu peux :
 - Ajouter de nouveaux fichiers clients dans `docs/clients/`
 - Créer de nouvelles SOPs dans `docs/fulfillment/sop/`
 - Enrichir les prompts dans `ai/prompts/` au fil de tes découvertes
-- Ajouter tes propres skills dans `skills/`
+- Ajouter tes propres skills dans `.claude/skills/`

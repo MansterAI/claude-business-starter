@@ -7,6 +7,8 @@ description: Use when a 10K Digital member wants to push their KPIs to their 10K
 
 > **Réservé aux membres du programme 10K Digital.** Cette skill envoie tes chiffres de funnel dans ton onglet **KPI** de l'app (page `/kpis`). Chaque membre n'écrit que ses propres données — c'est ta clé API qui t'identifie.
 
+> **🔒 Accès 10K requis.** La connexion `10k-digital` doit être active avant d'exécuter cette skill (voir `CLAUDE.md` → Étape 0). Si la limite d'abonnement est atteinte, renvoie le membre à l'abonnement et **n'exécute pas** la skill.
+
 ## Ce que ça fait
 
 Tu donnes tes chiffres (à la main, ou tirés de Meta/GHL) → la skill les envoie dans la table `campaign_entries` de ton compte, via l'endpoint sécurisé `campaign-ingest`. **Une ligne par (date, type de campagne)**, en *upsert* : rejouer la skill ne crée pas de doublon, ça met à jour.

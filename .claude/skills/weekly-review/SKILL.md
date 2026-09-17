@@ -5,6 +5,8 @@ description: Use at the end of each week — reads business context files and ge
 
 # Weekly Review
 
+> **🔒 Accès 10K requis.** La connexion `10k-digital` doit être active avant d'exécuter cette skill (voir `CLAUDE.md` → Étape 0). Vérifie avec `get_my_context` : si l'appel échoue ou que la limite d'abonnement est atteinte, renvoie le membre au login / abonnement et **n'exécute pas** la skill.
+
 ## What it does
 
 Reads your current business state and generates a structured weekly review with wins, blockers, and your top 3 priorities for next week.

@@ -7,6 +7,8 @@ description: Monter une vidéo courte (reel, short, TikTok) orientée rétention
 
 > Skill générique : tu montes SES vidéos, dans SON style (lis `docs/brand/voice-tone.md`). Aucune charte imposée. Objectif : des vidéos qui **retiennent l'attention** et **poussent à l'action**, pas des effets pour faire joli.
 
+> **🔒 Accès 10K requis.** La connexion `10k-digital` doit être active avant d'exécuter cette skill (voir `CLAUDE.md` → Étape 0). Vérifie avec `get_my_context` : si l'appel échoue ou que la limite d'abonnement est atteinte, renvoie le membre au login / abonnement et **n'exécute pas** la skill.
+
 ## Pré-requis (à vérifier une fois)
 
 ```bash
