@@ -10,30 +10,25 @@ Un template prêt à l'emploi pour organiser le contexte de ton entreprise dans 
 
 Tu n'as **rien à remplir à la main**. Tu télécharges le repo, tu ouvres Claude Code, et Claude t'accompagne dans une conversation d'installation.
 
-### Étape 1 — Récupérer le repo
-```bash
-git clone https://github.com/MansterAI/claude-business-starter mon-entreprise
-cd mon-entreprise
-```
-*(Ou télécharge le ZIP depuis GitHub et décompresse-le.)* Ouvre ensuite le dossier dans **Claude Code**.
+### Étape 1 — Récupérer ton assistant et l'ouvrir
+1. **Télécharge le ZIP** (ton lien de bonus) et **décompresse-le**.
+2. Ouvre l'app **Claude** (desktop) → **Cowork / Code** → **ouvre le dossier** que tu viens de décompresser.
 
-### Étape 2 — Connecter ton compte 10K (obligatoire, en premier)
-Le starter fonctionne branché à la plateforme 10K Digital. **Crée ton compte 10K** si ce n'est pas déjà fait, puis dans Claude Code, tape :
+Pas de terminal, pas de git. *(Avancé : tu peux aussi `git clone https://github.com/MansterAI/claude-business-starter` et l'ouvrir dans Claude Code en ligne de commande.)*
+
+### Étape 2 — Parle à Claude, il te branche
+Écris « on commence ». Claude t'accueille, t'explique, et te fait brancher ton tableau de bord 10K en un clic : tape
 ```
 /mcp
 ```
-Choisis **10k-digital** et connecte-toi avec ton compte. *(Le serveur est déjà pré-configuré dans le repo.)*
+choisis **10k-digital** et connecte-toi. C'est ce qui **sauvegarde ton travail** et t'ouvre **tes stats et ton funnel** sur ta plateforme. *(Le serveur est déjà pré-configuré.)*
 
-> Pas besoin de remplir les modules à la main d'abord : à l'étape 3, Claude **construit ta Fondation (histoire, brand, ICP, offre, marché) avec toi** et la **synchronise dans ton app** automatiquement.
+> Pas besoin de remplir les modules à la main : Claude **construit ta Fondation avec toi** et la **synchronise dans ton app**.
 
-### Étape 3 — Commencer à chatter
-Écris simplement à Claude (ex. « on commence ») ou tape :
-```
-/demarrer
-```
-Claude lance l'**onboarding** : il importe ton contexte depuis l'app 10K, te pose les questions manquantes, définit ton style d'écriture, et remplit `CLAUDE.md` + tes fichiers de contexte pour toi.
+### Étape 3 — Claude bâtit ta Fondation avec toi
+Une fois branché, Claude **construit ta Fondation avec toi** (histoire, brand, ICP, offre, marché), la synchronise dans ton app, définit ton style d'écriture, et remplit `CLAUDE.md` + tes fichiers de contexte. Tu réponds, il rédige, tu valides.
 
-**North Star par défaut du système : générer du revenu rapidement.** Tout est orienté vers ça.
+**North Star par défaut : générer du revenu rapidement.** Tout est orienté vers ça.
 
 ---
 

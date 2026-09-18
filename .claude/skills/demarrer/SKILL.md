@@ -20,27 +20,25 @@ Tu ne poses PAS 40 questions. Une grande partie du contexte (histoire, brand, IC
 
 ---
 
-## Étape 1 — Accueil (30 secondes)
+## Étape 1 — Accueil chaleureux (30 secondes)
 
-Souhaite la bienvenue. Explique en 3 phrases :
+Souhaite la bienvenue, ton d'un coach qui veut sa réussite. Explique en 3 phrases :
 1. Ce dossier, c'est le **cerveau** de sa business — plus il le nourrit, plus Claude devient précis.
-2. On va le brancher à son app **10K Digital** pour importer ce qu'il a déjà rempli.
-3. Objectif par défaut du système : **générer du revenu le plus vite possible** (on ajustera si besoin).
+2. On va brancher son **tableau de bord 10K Digital** : c'est là qu'il verra ses **stats, son funnel et sa progression**, et ça permet à Claude de connaître sa business.
+3. Objectif par défaut : **générer du revenu le plus vite possible** (on ajustera).
 
-Puis enchaîne directement sur l'étape 2.
+Puis enchaîne en douceur sur l'étape 2.
 
-## Étape 2 — Compte 10K + connexion MCP (OBLIGATOIRE, bloquant)
+## Étape 2 — Brancher son tableau de bord 10K
 
-C'est la porte d'entrée. **Rien d'autre ne se fait avant que ça soit vert.**
+C'est ce qui relie ton Claude à SON compte. Amène-l'y **tôt et avec le sourire**, comme un bénéfice (« on branche ton tableau de bord pour voir tes stats et sauvegarder ton travail »), jamais comme un péage.
 
-1. **Compte :** demande-lui s'il a déjà un compte 10K Digital. Sinon :
-   > « Avant tout, crée ton compte gratuit dans l'app 10K Digital, remplis les premiers modules (histoire, brand, ICP…), et reviens ici. »
-2. **Connexion MCP :** le MCP est déjà pré-configuré (`.mcp.json`). Demande-lui de l'autoriser :
-   > « Tape **`/mcp`** dans Claude Code, choisis **10k-digital**, et connecte-toi avec ton compte 10K. Dis-moi quand c'est fait. »
-3. **Vérifie** la connexion en appelant `get_my_context` (outil du serveur 10k-digital).
-   - Si l'appel échoue → la connexion n'est pas active : re-guide vers l'inscription / `/mcp`. **Ne passe pas à la suite, n'exécute aucune autre skill.**
-   - Si le serveur répond que la **limite d'abonnement** est atteinte → explique-lui qu'il faut un abonnement actif pour continuer, et arrête là.
-   - Si ça marche → passe à l'étape 3.
+1. **Compte :** s'il n'a pas encore de compte 10K, invite-le gentiment à en créer un (gratuit) dans l'app 10K, puis à revenir.
+2. **Connexion :** le MCP est déjà pré-configuré (`.mcp.json`). Guide-le :
+   > « Tape **`/mcp`**, choisis **10k-digital**, et connecte-toi. C'est un clic. Dis-moi quand c'est fait. »
+3. **Vérifie** avec `get_my_context`.
+   - Si ça marche → enchaîne sur l'étape 3.
+   - Si pas encore connecté → **ne le braque pas** : ré-explique la valeur en une phrase (« c'est ce qui sauvegarde ta Fondation et te donne ta plateforme »), et aide-le à brancher. Tu peux discuter et le préparer en attendant, mais rappelle que rien ne se sauvegarde tant que ce n'est pas branché.
 
 ## Étape 3 — Compléter la Fondation (Stratégie du début) AVEC le membre, puis sync vers l'app
 
@@ -108,5 +106,5 @@ Résume ce qui a été rempli, ce qui reste à compléter (le cas échéant), et
 
 - **Montre toujours** ce que tu vas écrire dans un fichier AVANT de l'écrire ; ne jamais écraser du contenu déjà rempli sans confirmation.
 - Ne submerge pas : une étape à la fois, questions courtes.
-- Si le membre veut sauter une étape, respecte-le et note ce qui reste à faire dans `ai/memory/in-progress.md`. **Exception : l'étape 2 (compte 10K + connexion MCP) n'est JAMAIS optionnelle** — sans elle, aucune skill ne s'exécute.
+- Si le membre veut sauter une étape, respecte-le et note ce qui reste à faire dans `ai/memory/in-progress.md`. **L'étape 2 (brancher le 10K) donne la vraie valeur** : amène-l'y tôt et avec douceur, rappelle que rien ne se sauvegarde sans elle, mais ne refuse jamais sèchement.
 - Tout en **français québécois**, ton d'un coach qui veut sa réussite.
