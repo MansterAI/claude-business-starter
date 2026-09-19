@@ -1,146 +1,80 @@
 ---
 name: kpi-tracker
-description: Use when a 10K Digital member wants to push their KPIs to their 10K Journey Tracker dashboard. Two modes — conversational (asks you your numbers, zero external API) or auto-sync (pulls Meta Ads + GoHighLevel). Triggers on "remplis mon KPI tracker", "envoie mes stats", "sync mes chiffres 10K", "update mon pilotage".
+description: Use when a 10K Digital member wants to push their KPIs to their 10K Journey Tracker dashboard. Two modes — conversational (tu donnes tes chiffres, zéro setup, via le MCP) or auto-sync (avancé : Meta Ads + GoHighLevel). Triggers on "remplis mon KPI tracker", "envoie mes stats", "sync mes chiffres 10K", "update mon pilotage".
 ---
 
-# KPI Tracker — sync vers ton tableau de bord 10K
-
-> **Réservé aux membres du programme 10K Digital.** Cette skill envoie tes chiffres de funnel dans ton onglet **KPI** de l'app (page `/kpis`). Chaque membre n'écrit que ses propres données — c'est ta clé API qui t'identifie.
+# KPI Tracker — envoyer tes chiffres dans ton tableau de bord 10K
 
 > **Connexion 10K.** Cette skill envoie les chiffres dans le compte 10K : elle a besoin que le 10K soit branché. Sinon, propose de brancher en un clic (`/mcp` → `10k-digital`), gentiment.
 
 ## Ce que ça fait
 
-Tu donnes tes chiffres (à la main, ou tirés de Meta/GHL) → la skill les envoie dans la table `campaign_entries` de ton compte, via l'endpoint sécurisé `campaign-ingest`. **Une ligne par (date, type de campagne)**, en *upsert* : rejouer la skill ne crée pas de doublon, ça met à jour.
+Tu donnes tes chiffres de funnel → Claude les enregistre dans ton onglet **KPI** de l'app (une ligne par date × type de campagne, en *upsert* : rejouer ne crée pas de doublon, ça met à jour). **Aucune clé, aucun fichier à éditer** : ça passe par l'outil MCP `log_kpi_entry`, via ta connexion `/mcp` déjà active.
 
-## Prérequis (une seule fois)
+## Deux modes
 
-1. Dans l'app 10K, va sur **API Keys** (page `/api-keys`) et **génère une clé** (format `10k_...`).
-2. Copie `.env.example` en `.env` et colle ta clé dans `KPI_INGEST_KEY`.
-3. (Optionnel, mode auto-sync) remplis aussi les variables Meta / GHL.
+- **Conversationnel (défaut, zéro setup)** — tu donnes tes chiffres, Claude les logue. Rien à installer, pas de Meta. C'est le mode normal.
+- **Auto-sync (avancé)** — Claude tire les chiffres de Meta Ads + GoHighLevel tout seul. Nécessite des clés dans `.env`. Réservé aux avancés, pas nécessaire pour débuter.
 
-> Le `.env` est protégé par `.gitignore` — il ne partira jamais sur GitHub. Ne colle **jamais** une clé directement dans un fichier suivi par Git.
+## Les 3 types de campagne
+`follow` (trafic profil / croissance), `dm` (messagerie), `lead_gen` (formulaires / leads).
 
-## L'endpoint (fixe, ne pas changer)
-
-```
-POST https://nmqxrjqznuanccgulcrc.supabase.co/functions/v1/campaign-ingest
-Authorization: Bearer <KPI_INGEST_KEY>
-Content-Type: application/json
-Body: { "entries": [ { "entry_date": "YYYY-MM-DD", "campaign_type": "follow|dm|lead_gen", ... } ] }
-```
-
-Réponse succès : `{ "success": true, "entries_upserted": N }`.
-
-Les 3 **types de campagne** valides : `follow` (trafic profil / croissance), `dm` (campagnes messagerie), `lead_gen` (formulaires / leads).
-
-Champs numériques acceptés (mets 0 ou omets ceux que tu n'as pas) :
-`ad_spend`, `profile_visits`, `followers`, `qualified_followers`, `dms_sent`, `dms_qualified`, `leads`, `qualified_leads`, `conversations`, `booked_calls`, `show_up_calls`, `closed_calls`, `cash_collected`, `revenue`. Plus `notes` (texte libre).
+## Champs `log_kpi_entry` (mets 0 ou omets ce que tu n'as pas)
+Requis : `entry_date` (YYYY-MM-DD), `campaign_type`. Optionnels : `ad_spend`, `profile_visits`, `followers`, `qualified_followers`, `dms_sent`, `conversations`, `leads`, `qualified_leads`, `booked_calls`, `show_up_calls`, `closed_calls`, `cash_collected`, `revenue`, `notes`.
 
 ---
 
-## Étape 0 — Charger la clé
+## Mode conversationnel (défaut, zéro setup)
 
-Lis le fichier `.env` à la racine et récupère `KPI_INGEST_KEY`.
-- **Absente ou vide ?** Arrête-toi et dis au membre : « Génère ta clé dans l'app (page /api-keys) et colle-la dans `.env` sous `KPI_INGEST_KEY`, puis relance-moi. »
+Le plus simple : tu demandes ses chiffres, tu les enregistres via `log_kpi_entry`.
 
-Décide ensuite du mode :
-- Si `META_ACCESS_TOKEN` **et** `GHL_API_KEY` sont remplis **et** que le membre demande explicitement un « sync auto » → **Mode auto-sync** (étape B).
-- Sinon → **Mode conversationnel** (étape A). C'est le défaut.
-
----
-
-## Étape A — Mode conversationnel (défaut, zéro API externe)
-
-Le plus simple : tu demandes ses chiffres, tu les envoies.
-
-1. **Demande la période.** « Pour quelle date veux-tu logger ? (défaut : aujourd'hui) ». Une entrée = une journée. Pour rattraper plusieurs jours, répète.
-
-2. **Demande les canaux actifs.** « Tu tournes quelles campagnes ? Follow (croissance profil), DM, Lead Gen ? » — ne demande que les canaux qu'il utilise.
-
-3. **Pour chaque canal, demande les chiffres du funnel** (dans l'ordre, saute ce qui ne s'applique pas) :
+1. **Période.** « Pour quelle date ? (défaut : aujourd'hui) ». Une entrée = une journée. Répète pour rattraper plusieurs jours.
+2. **Canaux actifs.** « Tu tournes quelles campagnes ? Follow, DM, Lead Gen ? » — ne demande que ceux qu'il utilise.
+3. **Chiffres du funnel, par canal** (saute ce qui ne s'applique pas) :
    - **Follow** : Ad Spend, Profile Visits, Followers, Qualified Followers, Conversations, Booked Calls, Show Up, Closed, Cash Collected, Revenue.
-   - **DM** : Ad Spend, DMs envoyés, DMs qualifiés, Conversations, Booked Calls, Show Up, Closed, Cash Collected, Revenue.
-   - **Lead Gen** : Ad Spend, Leads, Conversations, Qualified Leads, Booked Calls, Show Up, Closed, Cash Collected, Revenue.
+   - **DM** : Ad Spend, DMs envoyés, Qualified Followers, Conversations, Booked Calls, Show Up, Closed, Cash Collected, Revenue.
+   - **Lead Gen** : Ad Spend, Leads, Qualified Leads, Conversations, Booked Calls, Show Up, Closed, Cash Collected, Revenue.
 
-   Rassure : « Mets 0 si tu n'as pas le chiffre, on pourra corriger plus tard. »
-
-4. **Montre le récap et fais confirmer** avant d'envoyer :
-   > Date · Type · Ad Spend · … · Revenue — « Je peux envoyer ? »
-
-5. **Envoie** (étape C).
+   Rassure : « Mets 0 si tu ne l'as pas, on corrigera plus tard. »
+4. **Récap + confirme** avant d'envoyer (Date · Type · Ad Spend · … · Revenue — « Je peux envoyer ? »).
+5. **Enregistre** : appelle l'outil MCP **`log_kpi_entry`** une fois par (date × type) non vide (`notes: "conversationnel"`). N'envoie pas de ligne toute à 0.
+6. **Confirme** (voir plus bas).
 
 ---
 
-## Étape B — Mode auto-sync (avancé : Meta Ads + GoHighLevel)
+## Mode auto-sync (avancé : Meta Ads + GoHighLevel)
 
-Pour le membre qui a connecté ses comptes. Traite J-1 par défaut (fuseau America/Toronto), ou la plage demandée.
+> Réservé au membre qui a mis ses clés dans `.env` (`META_ACCESS_TOKEN`, `META_AD_ACCOUNT_ID`, `GHL_API_KEY`, `GHL_LOCATION_ID`). Pas nécessaire pour débuter. Traite J-1 par défaut (fuseau America/Toronto), ou la plage demandée. À la fin, enregistre via `log_kpi_entry` comme le mode conversationnel.
 
-### B1 — Meta Ads (par campagne, par jour)
-
+### Meta Ads (par campagne, par jour)
 ```
 GET https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights
-  ?level=campaign
-  &time_range={"since":"YYYY-MM-DD","until":"YYYY-MM-DD"}
-  &time_increment=1
+  ?level=campaign&time_range={"since":"YYYY-MM-DD","until":"YYYY-MM-DD"}&time_increment=1
   &fields=campaign_id,campaign_name,spend,impressions,actions,inline_link_clicks
   &access_token={META_ACCESS_TOKEN}
 ```
+Mappe chaque campagne vers un `campaign_type` d'après son nom (insensible à la casse) : contient `lead`/`formulaire` → `lead_gen` ; `dm`/`messenger`/`direct` → `dm` ; sinon → `follow`. Extrais : `ad_spend` = `spend` ; `leads` = actions `lead`/`onsite_conversion.lead_grouped` ; `profile_visits` = actions `profile_visit` ; `dms_sent` = actions `onsite_conversion.messaging_conversation_started_7d`. Agrège par type.
 
-Mappe chaque campagne vers un `campaign_type` d'après son nom (insensible à la casse) :
-- contient `lead` ou `formulaire` → `lead_gen`
-- contient `dm`, `messenger`, `direct` → `dm`
-- sinon (croissance / awareness / followers / profil) → `follow`
-
-Extrais : `ad_spend` = `spend` ; `leads` (lead_gen) = actions `lead`/`onsite_conversion.lead_grouped` ; `profile_visits` (follow) = actions contenant `profile_visit` ; `dms_sent` (dm) = actions `onsite_conversion.messaging_conversation_started_7d`. Agrège par type.
-
-### B2 — GoHighLevel (convos + pipeline, par jour)
-
+### GoHighLevel (convos + pipeline, par jour)
 ```
 GET https://services.leadconnectorhq.com/conversations/search
   ?locationId={GHL_LOCATION_ID}&startAfterDate={epochMs}&endBeforeDate={epochMs}&limit=100
 Headers: Authorization: Bearer {GHL_API_KEY} · Version: 2021-04-15 · Accept: application/json
 ```
+Classe par date du dernier message inbound : `conversations` (≥1 échange bidirectionnel) ; `dms_sent` (≥1 message envoyé) ; `qualified_followers`/`qualified_leads` (≥3 échanges OU tag `qualified`/`hot`/`sql`) ; `booked_calls` (appointment créé, endpoint `/calendars/events`) ; `show_up_calls` (status `showed`) ; `closed_calls` (opportunity `won`) ; `cash_collected`/`revenue` (somme `monetaryValue` won/payées). Donnée absente → 0 + note dans `notes`, n'invente jamais.
 
-Pour chaque convo FB/IG, classe par date du dernier message inbound :
-- `conversations` : ≥1 échange bidirectionnel dans la journée.
-- `dms_sent` : convos où le membre a envoyé ≥1 message ce jour.
-- `dms_qualified` / `qualified_followers` : ≥3 échanges OU tag GHL `qualified`/`hot`/`sql`.
-- `booked_calls` : appointment GHL créé ce jour (endpoint `/calendars/events`).
-- `show_up_calls` : appointment status `showed` ; `closed_calls` : opportunity `won` ce jour.
-- `cash_collected` / `revenue` : somme des `monetaryValue` d'opportunities won/payées ce jour.
-
-Donnée absente → laisse 0 et **note-le dans `notes`**, n'invente jamais.
-
-### B3 — Montre le récap au membre, puis envoie (étape C).
+Puis récap + `log_kpi_entry` par (date × type) avec `notes: "auto-sync meta+ghl"`.
 
 ---
 
-## Étape C — Envoyer (commun aux 2 modes)
+## Confirmer
 
-Construis le payload (une entrée par date × type non vide — **n'envoie pas de ligne toute à 0**), ajoute `"notes"` (ex. `"conversationnel"` ou `"auto-sync meta+ghl"`), puis :
+Montre un tableau récap (date · type · spend · conversations · booked · closed · cash · revenue) et dis :
 
-```bash
-curl -s -w '\n[HTTP %{http_code}]\n' -X POST \
-  "https://nmqxrjqznuanccgulcrc.supabase.co/functions/v1/campaign-ingest" \
-  -H "Authorization: Bearer $KPI_INGEST_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"entries":[ ... ]}'
-```
-
-- **200 + `entries_upserted`** → succès.
-- **401** → clé invalide/absente → renvoie le membre à `/api-keys`.
-- **400** → un `entry_date` (format `YYYY-MM-DD`) ou un `campaign_type` est invalide → corrige et rejoue.
-
-## Étape D — Confirmer
-
-Montre au membre un tableau récap (date · type · spend · conversations · booked · closed · cash · revenue) et dis-lui :
-
-> « C'est envoyé. Va voir dans l'app → onglet **KPI**. ⚠️ L'onglet ouvre sur le mois courant : si tu as loggé un autre mois, change le sélecteur de mois (ou clique l'onglet **Année**) pour voir tes chiffres. »
+> « C'est envoyé. Va voir dans l'app → onglet **KPI**. ⚠️ L'onglet ouvre sur le mois courant : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres. »
 
 ## Règles
 
-- **Toujours upsert**, jamais d'insert pur (la clé unique `(user_id, entry_date, campaign_type)` rend le rejeu sûr).
-- **N'écrase pas une saisie manuelle** sans demander : si une entrée existe déjà pour cette date/type avec des `notes` qui ne contiennent pas `conversationnel`/`auto-sync`, préviens avant.
+- **Toujours upsert** (la clé unique `(date, type)` rend le rejeu sûr).
+- **N'écrase pas une saisie manuelle** sans demander : si une entrée existe déjà pour cette date/type avec des `notes` sans `conversationnel`/`auto-sync`, préviens avant.
 - Montants en **CAD**. Ne jamais inventer un chiffre manquant → 0 + note.
-- Ne mets jamais la clé API dans un fichier suivi par Git, ni dans un message. Elle vit uniquement dans `.env`.
