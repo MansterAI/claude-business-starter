@@ -71,6 +71,9 @@ Claude analyse tes métriques + tâches en cours → rapport structuré + top 3 
 Audit complet de ton entreprise.
 Claude lit tous tes fichiers de contexte → identifie les gaps + opportunités + 3 actions prioritaires.
 
+### `/debloquer` *(clients DFY 4k)*
+Installe le **bundle de skills premium** (créatives, gestion d'ads, analyse concurrents…) si tu es client du programme 4k. La vérification passe par ton abonnement 10K.
+
 ### `/kpi-tracker` *(membres 10K Digital)*
 Envoie tes chiffres de funnel dans ton onglet **KPI** de l'app 10K.
 Deux modes : **conversationnel** (Claude te demande tes chiffres) ou **auto-sync** (Claude tire tes stats de Meta Ads + GoHighLevel).

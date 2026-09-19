@@ -118,3 +118,4 @@ Une fois le membre **onboardé et branché** au 10K, au **début d'une nouvelle 
 | `/montage-video` | Monter un reel / short orienté rétention (script → sous-titres → export) |
 | `/weekly-review` | Générer la revue hebdomadaire |
 | `/business-audit` | Audit complet de l'entreprise |
+| `/debloquer` | **Bundle premium (DFY 4k)** — installe les skills premium si tu es client, via ton abonnement 10K |
