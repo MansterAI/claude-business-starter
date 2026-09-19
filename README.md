@@ -53,6 +53,9 @@ L'accès passe par ton compte 10K. **L'usage est gratuit** pour l'essentiel : to
 ### `/demarrer` *(à faire en premier)*
 Lance l'onboarding : connecte le MCP 10K, importe ton contexte (histoire, brand, ICP, offre), définit ton style, et configure `CLAUDE.md` + tes fichiers.
 
+### `/contenu`
+Génère **hooks + un post prêt à publier** à partir de ta Fondation, ciblé sur ton client idéal et dans ton style. De quoi poster aujourd'hui.
+
 ### `/montage-video`
 Monte un reel / short orienté rétention : script (hook → corps → CTA), sous-titres incrustés, coupe des silences, export vertical 9:16. Dans ton style, sans charte imposée.
 

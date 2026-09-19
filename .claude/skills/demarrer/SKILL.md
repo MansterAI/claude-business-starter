@@ -93,12 +93,21 @@ Par défaut : **« Générer du revenu rapidement »**. Confirme-le avec lui, ou
 
 Ce qui n'est ni dans l'app ni encore couvert (règles absolues perso, outils/MCP en plus, offres secondaires) : demande-le brièvement et écris-le au bon endroit.
 
-## Étape 8 — Récap + première action orientée revenu
+## Étape 8 — Le premier win (génère, ne propose pas juste)
 
-Résume ce qui a été rempli, ce qui reste à compléter (le cas échéant), et **propose immédiatement une première action concrète qui rapproche du revenu** — par exemple :
-- « Veux-tu que je t'écrive 3 hooks pour ton offre principale ? »
-- « On prépare ton prochain appel de vente ? »
-- « Je log tes chiffres de la semaine dans ton tableau 10K avec `/kpi-tracker` ? »
+Ne demande pas « que veux-tu faire ? ». **Livre un win tout de suite**, à partir de sa Fondation :
+
+1. **Son offre, clarifiée** — une version propre en quelques lignes (promesse, pour qui, résultat mesurable). Montre-la, ajuste avec lui. Pour beaucoup, c'est la première fois qu'ils voient leur business articulé : c'est le premier « aha ».
+2. **3 hooks + 1 script de post prêt à publier**, ciblés sur son ICP et dans SON style. Lance le skill `/contenu`.
+3. **Enchaîne vers l'action** : « Poste celui-là aujourd'hui. Demain, on te fait une première créative et on logue tes premiers chiffres. »
+
+Note dans `ai/memory/in-progress.md` où il en est, pour proposer la suite à la prochaine session.
+
+### Parcours des 3 premiers jours (un petit win par jour)
+À chaque nouvelle session, propose la prochaine micro-étape :
+- **J1** : offre clarifiée + 3 hooks + 1er post (`/contenu`).
+- **J2** : poster / enregistrer le contenu, ou une première créative (via Higgsfield).
+- **J3** : logger sa première semaine de chiffres (`/kpi-tracker`, quick log) + un 2e post.
 
 ---
 

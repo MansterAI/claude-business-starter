@@ -112,6 +112,7 @@ Une fois le membre **onboardé et branché** au 10K, au **début d'une nouvelle 
 | Commande | Description |
 |----------|-------------|
 | `/demarrer` | **Onboarding** — configure ton projet et importe ton contexte 10K (à faire en premier) |
+| `/contenu` | **Génère hooks + post prêts à publier** depuis ta Fondation, dans ton style |
 | `/init-client` | Créer une nouvelle fiche client |
 | `/kpi-tracker` | Envoyer tes chiffres de funnel dans ton tableau de bord 10K |
 | `/montage-video` | Monter un reel / short orienté rétention (script → sous-titres → export) |
