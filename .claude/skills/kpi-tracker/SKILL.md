@@ -24,6 +24,10 @@ Requis : `entry_date` (YYYY-MM-DD), `campaign_type`. Optionnels : `ad_spend`, `p
 
 ---
 
+## Quick log (express, 4 chiffres)
+
+Pour une relance rapide (rituel hebdo), ne demande que l'essentiel : **leads, calls (booked_calls), closes (closed_calls), cash (cash_collected)**. Enregistre via `log_kpi_entry` sur le `campaign_type` principal du membre (`lead_gen` par défaut), le reste à 0. Puis propose de compléter le funnel complet s'il en a envie. C'est le chemin le plus court pour ne jamais casser l'habitude.
+
 ## Mode conversationnel (défaut, zéro setup)
 
 Le plus simple : tu demandes ses chiffres, tu les enregistres via `log_kpi_entry`.
