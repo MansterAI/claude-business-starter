@@ -1,15 +1,15 @@
 ---
 name: debloquer
-description: Débloque le bundle de skills premium (programme DFY 4k). Vérifie l'abonnement via le MCP 10K et installe les skills premium seulement si le membre est client DFY. Déclencheurs "débloque le bundle", "installer les skills premium", "j'ai pris le 4k", "unlock", "mes skills premium".
+description: Débloque le bundle de skills premium (programme DFY 4k). Vérifie l'abonnement via le MCP Pilora et installe les skills premium seulement si le membre est client DFY. Déclencheurs "débloque le bundle", "installer les skills premium", "j'ai pris le 4k", "unlock", "mes skills premium".
 ---
 
 # Débloquer — le bundle premium (programme DFY 4k)
 
-> Réservé aux clients du programme **DFY 4k**. La vérification se fait **côté serveur** (MCP 10K) : rien à contourner en local.
+> Réservé aux clients du programme **DFY 4k**. La vérification se fait **côté serveur** (MCP Pilora) : rien à contourner en local.
 
 ## Étape 1 — Vérifier le tier
 
-Assure-toi que le 10K est branché (`/mcp` → `10k-digital`), puis appelle l'outil MCP **`get_my_subscription`**.
+Assure-toi que Pilora est branché (dans Claude, `/mcp` → `pilora` ; dans Codex, `codex mcp login pilora` au terminal), puis appelle l'outil MCP **`get_my_subscription`**.
 
 - Tier **`dfy`** → passe à l'étape 2.
 - Tier `free` ou `active` → **n'installe rien.** Explique chaleureusement : « Le bundle premium (créatives via Higgsfield, gestion d'ads Meta, analyse concurrents, media-buying…) fait partie du programme DFY 4k. Si tu veux l'ajouter à ton système, parle-en à ton coach. » Ne braque pas, propose la valeur.

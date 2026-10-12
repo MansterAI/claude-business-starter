@@ -5,7 +5,7 @@ description: Génère du contenu prêt à publier (hooks + script de post) à pa
 
 # Contenu — hooks + post prêts à publier
 
-> **Connexion 10K.** Cette skill donne son plein résultat branchée au compte du membre (elle personnalise depuis sa Fondation). S'il n'est pas encore connecté (voir `CLAUDE.md` → Démarrage), propose-lui de brancher son 10K en un clic (`/mcp` → `10k-digital`) — sans le braquer.
+> **Connexion Pilora.** Cette skill donne son plein résultat une fois le compte Pilora du membre branché. S'il ne l'est pas encore, fais-le connecter d'abord (dans Claude, `/mcp` → `pilora` ; dans Codex, `codex mcp login pilora` au terminal), gentiment.
 
 ## Avant d'écrire
 

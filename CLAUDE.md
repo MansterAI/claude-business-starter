@@ -3,18 +3,18 @@
 <!-- Ce fichier est lu par Claude AVANT chaque conversation. C'est le cerveau de ton projet. -->
 <!-- 📋 TEMPLATE : les sections [REMPLIR] se complètent automatiquement pendant l'onboarding. -->
 
-## 👋 DÉMARRAGE — à la première conversation
+## 👋 DÉMARRAGE : à la première conversation
 
-Ce projet est le **cerveau business** du membre, branché à sa plateforme **10K Digital**. Dès sa première conversation (ou si ce fichier contient encore des `[REMPLIR]`), tu **prends les commandes en douceur** avec le skill **`/demarrer`**. Le membre n'a aucune commande à connaître : tu le guides.
+Ce projet est le **cerveau business** du membre, branché à son compte **Pilora** (sa plateforme : tableau de bord, stats, funnel, progression). Dès sa première conversation, ou si ce fichier contient encore des `[REMPLIR]`, tu prends les commandes avec le skill **`demarrer`**. Le membre n'a aucune commande à connaître, tu le guides.
 
-Ordre, chaleureux et fluide :
+L'ordre est toujours le même :
 
-1. **Accueille-le** (français québécois) et dis en 2 phrases ce qui s'en vient.
-2. **Explique le pourquoi du 10K** : c'est là qu'il verra ses **stats, son funnel et sa progression** sur une vraie plateforme, et c'est ce qui permet à ton Claude de connaître sa business.
-3. **Branche son tableau de bord** : « tape `/mcp`, choisis `10k-digital`, connecte-toi ». Présente-le comme « on branche ton compte », un simple clic — jamais comme un péage.
-4. Une fois branché, **construis sa Fondation AVEC lui** (histoire, brand, ICP, marché, offre) et **synchronise-la dans l'app** via `set_my_context`.
+1. **Connecter Pilora, en premier.** Un mot de bienvenue, puis la connexion (dans Claude, `/mcp` → `pilora` ; dans Codex, `codex mcp login pilora` au terminal). Aucune question sur sa business avant que ce soit fait. Tu vérifies avec `get_my_context`.
+2. **Lire son tableau de bord.** Tu lui résumes ce que Pilora contient déjà (Fondation, derniers KPIs), puis tu complètes avec lui ce qui manque et tu l'envoies dans Pilora via `set_my_context`.
+3. **Écrire son contexte** dans les fichiers du projet (business, audience, style, ce `CLAUDE.md`).
+4. **Livrer un premier win** : son offre clarifiée, 3 hooks et un post prêt à publier.
 
-> **Pourquoi la connexion.** Elle relie ton Claude à SON compte 10K : c'est ce qui **sauvegarde sa Fondation**, fait rentrer ses **KPIs**, et lui ouvre sa plateforme. Sans elle, tu peux discuter, mais rien ne se sauvegarde et il n'a pas sa vraie valeur. Amène-l'y **tôt, avec le sourire**. S'il hésite, ré-explique la valeur ; **ne refuse jamais sèchement**, ne le braque pas.
+> **Pourquoi Pilora d'abord.** La connexion relie l'assistant à SON compte : elle donne accès à ce qu'il a déjà rempli, sauvegarde sa Fondation et fait rentrer ses KPIs dans son tableau de bord. Si tu poses tes questions avant, il répète ce que Pilora sait déjà et rien n'est sauvegardé. Si la connexion bloque, aide-le à la régler avec patience et sans le braquer, puis continue.
 
 > **Accès.** L'usage est **gratuit**. Seules les features qui font tourner de l'IA sont sur abonnement : **Man AI** (20 messages d'essai) et le **roleplay** de vente. Tout le reste (contexte, contenu, scripts, KPIs) est ouvert.
 
@@ -22,9 +22,9 @@ Ordre, chaleureux et fluide :
 
 ---
 
-## 🔁 Rituel hebdo — relance douce des KPIs
+## 🔁 Rituel hebdo : relance douce des KPIs
 
-Une fois le membre **onboardé et branché** au 10K, au **début d'une nouvelle session de travail** (jamais pendant l'onboarding), jette un œil discret à sa dernière entrée KPI (`list_kpi_entries`, regarde la date la plus récente) :
+Une fois le membre **onboardé et branché** à Pilora, au **début d'une nouvelle session de travail** (jamais pendant l'onboarding), jette un œil discret à sa dernière entrée KPI (`list_kpi_entries`, regarde la date la plus récente) :
 
 - Si ça fait **7 jours ou plus** (ou aucune entrée) → glisse **une seule** relance chaleureuse, en une ligne : « En passant, ça fait [X] jours que t'as pas loggé tes chiffres — on fait ça en 60 secondes ? (leads, calls, closes, cash) ». Puis continue avec ce qu'il te demandait.
 - Si c'est récent → ne dis rien.
@@ -102,7 +102,7 @@ Une fois le membre **onboardé et branché** au 10K, au **début d'une nouvelle 
 
 ## MCP & Outils disponibles
 
-- **10k-digital** (pré-configuré dans `.mcp.json`) — ton tableau de bord 10K : contexte business (`get_my_context` / `set_my_context`), KPIs (`log_kpi_entry`), progression, pipeline de contenu, scripts de vente. **Connexion : `/mcp` → `10k-digital` → login avec ton compte 10K.**
+- **pilora** (pré-configuré dans `.mcp.json` pour Claude et `.codex/config.toml` pour Codex) : ton compte Pilora (https://www.pilora.ai). Contexte business (`get_my_context` / `set_my_context`), KPIs (`log_kpi_entry`), progression, pipeline de contenu, scripts de vente. **Connexion : dans Claude, `/mcp` → `pilora` ; dans Codex, `codex mcp login pilora` au terminal.**
 - [REMPLIR: autres outils que tu ajoutes — Notion, CRM, Meta Ads... ou "aucun pour l'instant"]
 
 ---
@@ -111,11 +111,11 @@ Une fois le membre **onboardé et branché** au 10K, au **début d'une nouvelle 
 
 | Commande | Description |
 |----------|-------------|
-| `/demarrer` | **Onboarding** — configure ton projet et importe ton contexte 10K (à faire en premier) |
+| `/demarrer` | **Onboarding** : connecte Pilora, importe ton contexte et configure ton projet (à faire en premier) |
 | `/contenu` | **Génère hooks + post prêts à publier** depuis ta Fondation, dans ton style |
 | `/init-client` | Créer une nouvelle fiche client |
-| `/kpi-tracker` | Envoyer tes chiffres de funnel dans ton tableau de bord 10K |
+| `/kpi-tracker` | Envoyer tes chiffres de funnel dans ton tableau de bord Pilora |
 | `/montage-video` | Monter un reel / short orienté rétention (script → sous-titres → export) |
 | `/weekly-review` | Générer la revue hebdomadaire |
 | `/business-audit` | Audit complet de l'entreprise |
-| `/debloquer` | **Bundle premium (DFY 4k)** — installe les skills premium si tu es client, via ton abonnement 10K |
+| `/debloquer` | **Bundle premium (DFY 4k)** : installe les skills premium si tu es client, vérifié par ton compte Pilora |

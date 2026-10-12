@@ -1,0 +1,6 @@
+# Connexion Pilora pour Codex (équivalent de .mcp.json pour Claude).
+# Lue seulement si le projet est marqué « trusted » dans Codex.
+# Connexion : codex mcp login pilora
+
+[mcp_servers.pilora]
+url = "https://nmqxrjqznuanccgulcrc.supabase.co/functions/v1/mcp"

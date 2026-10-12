@@ -8,33 +8,43 @@ Un template prêt à l'emploi pour organiser le contexte de ton entreprise dans 
 
 ## Démarrage rapide
 
-Tu n'as **rien à remplir à la main**. Tu télécharges le repo, tu ouvres Claude Code, et Claude t'accompagne dans une conversation d'installation.
+Tu n'as rien à remplir à la main. Trois étapes, et la première chose que Claude te demande, c'est de connecter ton compte Pilora.
 
-### Étape 1 — Récupérer ton assistant et l'ouvrir
+### Étape 1 : Ouvre le dossier dans Claude
 1. **Télécharge le ZIP** (ton lien de bonus) et **décompresse-le**.
 2. Ouvre l'app **Claude** (desktop) → **Cowork / Code** → **ouvre le dossier** que tu viens de décompresser.
 
-Pas de terminal, pas de git. *(Avancé : tu peux aussi `git clone https://github.com/MansterAI/claude-business-starter` et l'ouvrir dans Claude Code en ligne de commande.)*
+Pas de terminal, pas de git. *(Avancé : tu peux aussi faire `git clone https://github.com/MansterAI/claude-business-starter` et l'ouvrir dans Claude Code en ligne de commande. Tu utilises Codex ? Voir « Utiliser avec Codex » plus bas.)*
 
-### Étape 2 — Parle à Claude, il te branche
-Écris « on commence ». Claude t'accueille, t'explique, et te fait brancher ton tableau de bord 10K en un clic : tape
+### Étape 2 : Connecte Pilora
+Écris « on commence ». Claude te demande de brancher ton compte Pilora avant toute chose. Tape
 ```
 /mcp
 ```
-choisis **10k-digital** et connecte-toi. C'est ce qui **sauvegarde ton travail** et t'ouvre **tes stats et ton funnel** sur ta plateforme. *(Le serveur est déjà pré-configuré.)*
+choisis **pilora** et connecte-toi avec ton compte. Le serveur est déjà configuré, tu n'as rien à installer. Si tu n'as pas encore de compte Pilora, crée-le d'abord sur [pilora.ai](https://www.pilora.ai) (c'est gratuit).
 
-> Pas besoin de remplir les modules à la main : Claude **construit ta Fondation avec toi** et la **synchronise dans ton app**.
+Cette connexion permet à Claude de lire ton tableau de bord d'entreprise (ta Fondation, tes stats, ton funnel) et de sauvegarder tout ce que vous faites ensemble.
 
-### Étape 3 — Claude bâtit ta Fondation avec toi
-Une fois branché, Claude **construit ta Fondation avec toi** (histoire, brand, ICP, offre, marché), la synchronise dans ton app, définit ton style d'écriture, et remplit `CLAUDE.md` + tes fichiers de contexte. Tu réponds, il rédige, tu valides.
+### Étape 3 : Claude complète ta Fondation avec toi
+Une fois branché, Claude te montre ce que Pilora contient déjà, puis te pose des questions seulement sur ce qui manque (histoire, brand, client idéal, offre, marché). Tu réponds, il rédige, tu valides, et c'est enregistré dans Pilora. Il termine en te préparant du contenu prêt à publier.
 
 **North Star par défaut : générer du revenu rapidement.** Tout est orienté vers ça.
 
 ---
 
+## Utiliser avec Codex
+
+Le même dossier fonctionne avec Codex (OpenAI). Ouvre-le dans Codex, accepte de faire confiance au projet, puis connecte Pilora depuis ton terminal :
+```bash
+codex mcp login pilora
+```
+Écris ensuite « on commence ». Les skills se lancent avec `$` au lieu de `/` (par exemple `$demarrer`), ou en passant par `/skills`.
+
+---
+
 ## Accès & abonnement
 
-L'accès passe par ton compte 10K. **L'usage est gratuit** pour l'essentiel : ton contexte, ton contenu, tes scripts de vente, tes KPI, ton suivi. Les **features qui font tourner de l'IA** demandent un abonnement — le **roleplay de vente**, et **Man AI** au-delà de **20 messages** d'essai.
+L'accès passe par ton compte Pilora. **L'usage est gratuit** pour l'essentiel : ton contexte, ton contenu, tes scripts de vente, tes KPI, ton suivi. Les **features qui font tourner de l'IA** demandent un abonnement : le **roleplay de vente**, et **Man AI** au-delà de **20 messages** d'essai.
 
 ---
 
@@ -51,7 +61,7 @@ L'accès passe par ton compte 10K. **L'usage est gratuit** pour l'essentiel : to
 ## Skills disponibles
 
 ### `/demarrer` *(à faire en premier)*
-Lance l'onboarding : connecte le MCP 10K, importe ton contexte (histoire, brand, ICP, offre), définit ton style, et configure `CLAUDE.md` + tes fichiers.
+Lance l'onboarding : connecte Pilora en premier, importe ton contexte (histoire, brand, ICP, offre), définit ton style, et configure `CLAUDE.md` et tes fichiers.
 
 ### `/contenu`
 Génère **hooks + un post prêt à publier** à partir de ta Fondation, ciblé sur ton client idéal et dans ton style. De quoi poster aujourd'hui.
@@ -72,61 +82,26 @@ Audit complet de ton entreprise.
 Claude lit tous tes fichiers de contexte → identifie les gaps + opportunités + 3 actions prioritaires.
 
 ### `/debloquer` *(clients DFY 4k)*
-Installe le **bundle de skills premium** (créatives, gestion d'ads, analyse concurrents…) si tu es client du programme 4k. La vérification passe par ton abonnement 10K.
+Installe le **bundle de skills premium** (créatives, gestion d'ads, analyse concurrents…) si tu es client du programme 4k. La vérification passe par ton compte Pilora.
 
-### `/kpi-tracker` *(membres 10K Digital)*
-Envoie tes chiffres de funnel dans ton onglet **KPI** de l'app 10K.
+### `/kpi-tracker`
+Envoie tes chiffres de funnel dans ton onglet **KPI** de Pilora.
 Deux modes : **conversationnel** (Claude te demande tes chiffres) ou **auto-sync** (Claude tire tes stats de Meta Ads + GoHighLevel).
-Setup en 2 min → voir la section « Connecter ton tableau de bord 10K » plus bas.
+Aucun setup : ça passe par ta connexion Pilora (voir « Envoyer tes chiffres dans Pilora » plus bas).
 
 ---
 
-## Skills recommandés à installer
+## Envoyer tes chiffres dans Pilora
 
-Ces skills améliorent la façon dont Claude travaille avec toi :
-
-```bash
-# 1. Cloner le repo superpowers
-git clone https://github.com/obra/superpowers.git ~/.claude/plugins/superpowers
-
-# 2. Les skills sont maintenant disponibles dans Claude Code
-```
-
-Skills recommandés une fois installés :
-- `superpowers:brainstorming` — avant chaque nouveau projet ou feature
-- `superpowers:writing-plans` — pour planifier avant d'agir
-- `superpowers:systematic-debugging` — pour résoudre des problèmes méthodiquement
-- `superpowers:verification-before-completion` — pour valider avant de dire "c'est fait"
-
-👉 Repo officiel : [github.com/obra/superpowers](https://github.com/obra/superpowers)
-
----
-
-## Connecter ton tableau de bord 10K *(membres 10K Digital)*
-
-> **Deux connexions, deux usages :**
-> - **`/mcp` (fait à l'étape 2)** → connexion générale : import de ton contexte business, skills, progression. C'est la principale.
-> - **Clé `.env` ci-dessous** → sert **uniquement** à la skill `/kpi-tracker` pour logguer le détail de ton funnel. Optionnelle, à faire seulement si tu utilises `/kpi-tracker`.
-
-La skill `/kpi-tracker` pousse tes chiffres dans l'onglet **KPI** de l'app 10K, automatiquement. Setup une seule fois :
-
-**1. Génère ta clé API.** Dans l'app 10K → menu → **API Keys** (page `/api-keys`) → crée une clé (format `10k_...`).
-
-**2. Crée ton `.env`.** Copie le modèle :
-```bash
-cp .env.example .env
-```
-Ouvre `.env` et colle ta clé dans `KPI_INGEST_KEY`. *(Le `.env` n'est jamais poussé sur GitHub — il est protégé par `.gitignore`.)*
-
-**3. Utilise-la.** Dans Claude Code, tape :
+Une fois Pilora connecté (étape 2), tu n'as rien d'autre à configurer. Tape :
 ```
 /kpi-tracker
 ```
-Claude te demande tes chiffres de la semaine et les envoie dans ton pilotage. C'est tout.
+Claude te demande tes chiffres de la semaine et les envoie dans ton onglet **KPI**.
 
-**Optionnel — auto-sync.** Si tu veux que Claude tire tes stats tout seul depuis **Meta Ads** et **GoHighLevel**, remplis aussi les variables Meta/GHL dans `.env` (voir `.env.example`), puis demande « sync auto ».
+**Optionnel : auto-sync.** Si tu veux que Claude tire tes stats tout seul depuis **Meta Ads** et **GoHighLevel**, copie `.env.example` en `.env`, remplis les variables Meta/GHL, puis demande « sync auto ». Le `.env` n'est jamais poussé sur GitHub.
 
-> ⚠️ Après l'envoi, va dans l'app → onglet KPI. L'onglet ouvre sur le **mois courant** : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres.
+> ⚠️ Après l'envoi, va dans [Pilora](https://www.pilora.ai) → onglet KPI. L'onglet ouvre sur le **mois courant** : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres.
 
 ---
 
@@ -156,7 +131,10 @@ Une fois tes fichiers remplis, voici ce que tu peux demander à Claude :
 ```
 claude-business-starter/
 ├── CLAUDE.md              ← ✅ Rempli automatiquement par /demarrer
-├── .mcp.json              ← ✅ MCP 10K pré-configuré (connexion via /mcp)
+├── AGENTS.md              ← ✅ Point d'entrée pour Codex (renvoie à CLAUDE.md)
+├── .mcp.json              ← ✅ Connexion Pilora pour Claude (via /mcp)
+├── .codex/config.toml     ← ✅ Connexion Pilora pour Codex
+├── .agents/skills/        ← ✅ Skills exposées à Codex (renvoient à .claude/skills/)
 ├── .env.example           ← 📋 Copier en .env (optionnel : auto-sync Meta/GHL)
 ├── .claude/
 │   └── skills/            ← Skills Claude Code (/demarrer, /kpi-tracker, /montage-video...)

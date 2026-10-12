@@ -1,15 +1,15 @@
 ---
 name: kpi-tracker
-description: Use when a 10K Digital member wants to push their KPIs to their 10K Journey Tracker dashboard. Two modes — conversational (tu donnes tes chiffres, zéro setup, via le MCP) or auto-sync (avancé : Meta Ads + GoHighLevel). Triggers on "remplis mon KPI tracker", "envoie mes stats", "sync mes chiffres 10K", "update mon pilotage".
+description: Use when a member wants to push their KPIs to their Pilora dashboard. Two modes — conversational (tu donnes tes chiffres, zéro setup, via le MCP) or auto-sync (avancé : Meta Ads + GoHighLevel). Triggers on "remplis mon KPI tracker", "envoie mes stats", "sync mes chiffres Pilora", "update mon pilotage".
 ---
 
-# KPI Tracker — envoyer tes chiffres dans ton tableau de bord 10K
+# KPI Tracker : envoyer tes chiffres dans ton tableau de bord Pilora
 
-> **Connexion 10K.** Cette skill envoie les chiffres dans le compte 10K : elle a besoin que le 10K soit branché. Sinon, propose de brancher en un clic (`/mcp` → `10k-digital`), gentiment.
+> **Connexion Pilora.** Cette skill envoie les chiffres dans le compte Pilora du membre : elle a besoin que Pilora soit branché. Sinon, fais-le connecter d'abord (dans Claude, `/mcp` → `pilora` ; dans Codex, `codex mcp login pilora` au terminal), gentiment.
 
 ## Ce que ça fait
 
-Tu donnes tes chiffres de funnel → Claude les enregistre dans ton onglet **KPI** de l'app (une ligne par date × type de campagne, en *upsert* : rejouer ne crée pas de doublon, ça met à jour). **Aucune clé, aucun fichier à éditer** : ça passe par l'outil MCP `log_kpi_entry`, via ta connexion `/mcp` déjà active.
+Tu donnes tes chiffres de funnel → Claude les enregistre dans ton onglet **KPI** de Pilora (une ligne par date × type de campagne, en *upsert* : rejouer ne crée pas de doublon, ça met à jour). **Aucune clé, aucun fichier à éditer** : ça passe par l'outil MCP `log_kpi_entry`, via ta connexion Pilora déjà active.
 
 ## Deux modes
 
@@ -75,7 +75,7 @@ Puis récap + `log_kpi_entry` par (date × type) avec `notes: "auto-sync meta+gh
 
 Montre un tableau récap (date · type · spend · conversations · booked · closed · cash · revenue) et dis :
 
-> « C'est envoyé. Va voir dans l'app → onglet **KPI**. ⚠️ L'onglet ouvre sur le mois courant : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres. »
+> « C'est envoyé. Va voir dans Pilora (https://www.pilora.ai) → onglet **KPI**. ⚠️ L'onglet ouvre sur le mois courant : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres. »
 
 ## Règles
 

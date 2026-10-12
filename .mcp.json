@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "10k-digital": {
+    "pilora": {
       "type": "http",
       "url": "https://nmqxrjqznuanccgulcrc.supabase.co/functions/v1/mcp"
     }
