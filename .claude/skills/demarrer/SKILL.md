@@ -27,15 +27,19 @@ Une étape à la fois, questions courtes, et tu montres toujours ce que tu vas �
 
 ## Étape 1 : Connecter Pilora (en premier)
 
-Ton premier message tient en quelques lignes : un mot de bienvenue, puis la connexion. Aucune question sur sa business à ce stade, parce que Pilora contient peut-être déjà les réponses et que rien ne se sauvegarde tant que le compte n'est pas branché.
+**Commence par vérifier en silence** : appelle `get_my_context`. Le serveur peut s'appeler `pilora` ou `claude.ai Pilora` (connecteur ajouté sur claude.ai). S'il répond, le membre a déjà branché Pilora pendant l'onboarding de la plateforme : souhaite-lui la bienvenue en une phrase et passe directement à l'étape 2, sans lui reparler de connexion.
+
+S'il ne répond pas, ton premier message tient en quelques lignes : un mot de bienvenue, puis la connexion. Aucune question sur sa business à ce stade, parce que Pilora contient peut-être déjà les réponses et que rien ne se sauvegarde tant que le compte n'est pas branché.
 
 Dis-lui quelque chose comme :
 
 > « Bienvenue ! Avant de parler de ta business, on branche ton compte Pilora. C'est là que tu vois ton tableau de bord (tes stats, ton funnel, ta progression) et c'est ce qui me permet de connaître ton entreprise.
 >
-> Tape **`/mcp`**, choisis **pilora**, puis connecte-toi avec ton compte. Dis-moi quand c'est fait. »
+> Le plus simple : va sur **www.pilora.ai**, connecte-toi, et suis l'écran **Configure ton agent IA** (ou la carte « Configuration » de ton tableau de bord). En 2 minutes, Pilora te guide clic par clic. Dis-moi quand c'est fait. »
 
-- **Sous Codex**, la commande est différente : le membre tape `codex mcp login pilora` dans son terminal, puis revient dans la conversation. Donne-lui l'instruction qui correspond à l'outil dans lequel tu tournes.
+- **Claude** : la voie la plus simple est le connecteur personnalisé sur claude.ai (Paramètres → Connecteurs → Ajouter un connecteur personnalisé), que Pilora explique étape par étape. Il apparaît ensuite tout seul ici. Si le membre préfère, tape **`/mcp`**, choisis **pilora** et connecte-toi.
+- **Codex** : dans l'app Codex, Réglages → Serveurs MCP → Ajouter (adresse donnée par Pilora), puis S'authentifier. En secours : `codex mcp login pilora` dans le terminal. Donne-lui l'instruction qui correspond à l'outil dans lequel tu tournes.
+- Ne lui fais jamais taper une commande s'il existe une voie par clics : beaucoup de membres ne sont pas à l'aise avec le terminal.
 - **Pas encore de compte ?** Invite-le à en créer un sur https://www.pilora.ai (c'est gratuit), puis à revenir faire la connexion.
 - **Vérifie** en appelant `get_my_context`. Si l'appel répond, il est branché : passe à l'étape 2.
 - **Ça bloque ?** Reste sur cette étape et aide-le à débloquer (il a peut-être fermé la fenêtre de connexion, ou choisi le mauvais serveur). Reste chaleureux, ne le braque pas, mais ne commence pas les questions de Fondation sans la connexion : il aurait à tout refaire.

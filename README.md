@@ -8,37 +8,29 @@ Un template prêt à l'emploi pour organiser le contexte de ton entreprise dans 
 
 ## Démarrage rapide
 
-Tu n'as rien à remplir à la main. Trois étapes, et la première chose que Claude te demande, c'est de connecter ton compte Pilora.
+Tout se fait à partir de **Pilora** et de ton agent (Claude ou Codex). Pas de GitHub, pas de fichier à décompresser.
 
-### Étape 1 : Ouvre le dossier dans Claude
-1. **Télécharge le ZIP** (ton lien de bonus) et **décompresse-le**.
-2. Ouvre l'app **Claude** (desktop) → **Cowork / Code** → **ouvre le dossier** que tu viens de décompresser.
+### Étape 1 : Crée ton compte Pilora
+Va sur [pilora.ai](https://www.pilora.ai) et crée ton compte (c'est gratuit). Au premier accès, l'écran **Configure ton agent IA** te guide clic par clic.
 
-Pas de terminal, pas de git. *(Avancé : tu peux aussi faire `git clone https://github.com/MansterAI/claude-business-starter` et l'ouvrir dans Claude Code en ligne de commande. Tu utilises Codex ? Voir « Utiliser avec Codex » plus bas.)*
+### Étape 2 : Branche Pilora sur ton agent
+- **Claude** : ajoute Pilora comme connecteur sur claude.ai (Paramètres → Connecteurs → Ajouter un connecteur personnalisé). Pilora te donne l'adresse à coller. Le connecteur apparaît ensuite tout seul dans Claude Code.
+- **Codex** : dans l'app Codex, Réglages → Serveurs MCP → Ajouter, colle l'adresse donnée par Pilora, puis clique S'authentifier.
 
-### Étape 2 : Connecte Pilora
-Écris « on commence ». Claude te demande de brancher ton compte Pilora avant toute chose. Tape
-```
-/mcp
-```
-choisis **pilora** et connecte-toi avec ton compte. Le serveur est déjà configuré, tu n'as rien à installer. Si tu n'as pas encore de compte Pilora, crée-le d'abord sur [pilora.ai](https://www.pilora.ai) (c'est gratuit).
+### Étape 3 : Demande ton starter à ton agent
+Crée un dossier pour ta business (par exemple **ma-business** sur ton Bureau), ouvre-le dans ton agent (onglet **Code** de l'app Claude, ou comme projet dans Codex), puis écris :
 
-Cette connexion permet à Claude de lire ton tableau de bord d'entreprise (ta Fondation, tes stats, ton funnel) et de sauvegarder tout ce que vous faites ensemble.
+> Installe mon starter Pilora
 
-### Étape 3 : Claude complète ta Fondation avec toi
-Une fois branché, Claude te montre ce que Pilora contient déjà, puis te pose des questions seulement sur ce qui manque (histoire, brand, client idéal, offre, marché). Tu réponds, il rédige, tu valides, et c'est enregistré dans Pilora. Il termine en te préparant du contenu prêt à publier.
+Ton agent télécharge le starter depuis Pilora et l'installe dans le dossier. Accepte la permission qu'il te demande : c'est un seul fichier.
+
+### Étape 4 : Lance `/demarrer`
+Ton agent te pose quelques questions sur ton offre et ton client idéal, enregistre tout dans Pilora, puis te prépare du contenu prêt à publier. Dans Codex, les skills se lancent avec `$` (par exemple `$demarrer`).
 
 **North Star par défaut : générer du revenu rapidement.** Tout est orienté vers ça.
 
----
-
-## Utiliser avec Codex
-
-Le même dossier fonctionne avec Codex (OpenAI). Ouvre-le dans Codex, accepte de faire confiance au projet, puis connecte Pilora depuis ton terminal :
-```bash
-codex mcp login pilora
-```
-Écris ensuite « on commence ». Les skills se lancent avec `$` au lieu de `/` (par exemple `$demarrer`), ou en passant par `/skills`.
+### Mettre à jour ton starter
+Quand une nouvelle version sort, Pilora te le dit. Écris à ton agent : « Mets à jour mon starter Pilora ». Il remplace seulement les fichiers gérés par Pilora (skills, agents, prompts) et ne touche jamais à tes fichiers personnels (ton `CLAUDE.md`, ton contexte, ta brand, tes clients). La liste exacte est dans `pilora-starter.json`.
 
 ---
 
@@ -93,7 +85,7 @@ Aucun setup : ça passe par ta connexion Pilora (voir « Envoyer tes chiffres da
 
 ## Envoyer tes chiffres dans Pilora
 
-Une fois Pilora connecté (étape 2), tu n'as rien d'autre à configurer. Tape :
+Une fois Pilora branché (étape 2), tu n'as rien d'autre à configurer. Tape :
 ```
 /kpi-tracker
 ```
@@ -132,8 +124,7 @@ Une fois tes fichiers remplis, voici ce que tu peux demander à Claude :
 claude-business-starter/
 ├── CLAUDE.md              ← ✅ Rempli automatiquement par /demarrer
 ├── AGENTS.md              ← ✅ Point d'entrée pour Codex (renvoie à CLAUDE.md)
-├── .mcp.json              ← ✅ Connexion Pilora pour Claude (via /mcp)
-├── .codex/config.toml     ← ✅ Connexion Pilora pour Codex
+├── pilora-starter.json    ← ✅ Version du starter + fichiers gérés / personnels
 ├── .agents/skills/        ← ✅ Skills exposées à Codex (renvoient à .claude/skills/)
 ├── .env.example           ← 📋 Copier en .env (optionnel : auto-sync Meta/GHL)
 ├── .claude/

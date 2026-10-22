@@ -1,0 +1,32 @@
+{
+  "nom": "Business Starter Pilora",
+  "version": "1.0.0",
+  "regle_mise_a_jour": "Une mise à jour remplace seulement les fichiers « geres ». Les fichiers « personnels » appartiennent au membre et ne sont jamais écrasés.",
+  "geres": [
+    "README.md",
+    "pilora-starter.json",
+    ".env.example",
+    ".gitignore",
+    ".claude/skills/**",
+    ".agents/skills/**",
+    "ai/agents/**",
+    "ai/prompts/**",
+    "docs/tools/**",
+    "docs/clients/_template.md",
+    "docs/fulfillment/sop/_template-sop.md"
+  ],
+  "personnels": [
+    "CLAUDE.md",
+    "AGENTS.md",
+    ".env",
+    "ai/context/**",
+    "ai/memory/**",
+    "docs/brand/**",
+    "docs/clients/**",
+    "docs/marketing/**",
+    "docs/sales/**",
+    "docs/finance/**",
+    "docs/fulfillment/**"
+  ],
+  "note": "Quand un chemin correspond aux deux listes (ex. docs/clients/_template.md), « geres » l'emporte."
+}
