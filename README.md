@@ -77,7 +77,7 @@ Claude lit tous tes fichiers de contexte → identifie les gaps + opportunités 
 Installe le **bundle de skills premium** (créatives, gestion d'ads, analyse concurrents…) si tu es client du programme 4k. La vérification passe par ton compte Pilora.
 
 ### `/kpi-tracker`
-Envoie tes chiffres de funnel dans ton onglet **KPI** de Pilora.
+Envoie tes chiffres de funnel dans ton onglet **KPI** de Pilora, rangés par source (Follow, DM pub, Inbound, Lead Gen, Webinaire) et dans l'ordre du funnel : Contacts → Qualifiés → Conversations → Appels bookés → Présents → Closes. Claude vérifie que chaque étape reste plus petite que la précédente avant d'envoyer.
 Deux modes : **conversationnel** (Claude te demande tes chiffres) ou **auto-sync** (Claude tire tes stats de Meta Ads + GoHighLevel).
 Aucun setup : ça passe par ta connexion Pilora (voir « Envoyer tes chiffres dans Pilora » plus bas).
 
@@ -93,7 +93,7 @@ Claude te demande tes chiffres de la semaine et les envoie dans ton onglet **KPI
 
 **Optionnel : auto-sync.** Si tu veux que Claude tire tes stats tout seul depuis **Meta Ads** et **GoHighLevel**, copie `.env.example` en `.env`, remplis les variables Meta/GHL, puis demande « sync auto ». Le `.env` n'est jamais poussé sur GitHub.
 
-> ⚠️ Après l'envoi, va dans [Pilora](https://www.pilora.ai) → onglet KPI. L'onglet ouvre sur le **mois courant** : si tu as loggé un autre mois, change le sélecteur de mois (ou clique **Année**) pour voir tes chiffres.
+> Après l'envoi, va dans [Pilora](https://www.pilora.ai) → onglet KPI : chaque source a son onglet, et l'Aperçu montre d'où viennent tes ventes. Une étape en rouge dépasse la précédente sur le mois : demande à Claude de la corriger avec toi.
 
 ---
 

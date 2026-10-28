@@ -26,10 +26,10 @@ L'ordre est toujours le même :
 
 Une fois le membre **onboardé et branché** à Pilora, au **début d'une nouvelle session de travail** (jamais pendant l'onboarding), jette un œil discret à sa dernière entrée KPI (`list_kpi_entries`, regarde la date la plus récente) :
 
-- Si ça fait **7 jours ou plus** (ou aucune entrée) → glisse **une seule** relance chaleureuse, en une ligne : « En passant, ça fait [X] jours que t'as pas loggé tes chiffres — on fait ça en 60 secondes ? (leads, calls, closes, cash) ». Puis continue avec ce qu'il te demandait.
+- Si ça fait **7 jours ou plus** (ou aucune entrée) → glisse **une seule** relance chaleureuse, en une ligne : « En passant, ça fait [X] jours que t'as pas loggé tes chiffres — on fait ça en 60 secondes ? (contacts, conversations, appels, ventes, cash) ». Puis continue avec ce qu'il te demandait.
 - Si c'est récent → ne dis rien.
 
-**Règles :** une seule relance par session, jamais répétée dans la même conversation ; s'il décline, respecte-le sans insister. Le but est de **semer l'habitude, pas de harceler.** Utilise le **quick log** (4 chiffres) de `/kpi-tracker` pour que ce soit express.
+**Règles :** une seule relance par session, jamais répétée dans la même conversation ; s'il décline, respecte-le sans insister. Le but est de **semer l'habitude, pas de harceler.** Utilise le **quick log** de `/kpi-tracker` pour que ce soit express.
 
 ---
 
